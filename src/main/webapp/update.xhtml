@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <h1>Edytuj informacje o rzeczy</h1>
+
+         <h:form id="form">
+            <h:panelGrid columns="3">
+
+                <h:outputText value="#{msg.name}" />
+                <h:inputText id="name" value="#{thingWeb.thing.name}" size="30">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:messages for="name" style="color:red" />
+
+                <h:outputText value="#{msg.borrowTime}" />
+                <rich:calendar value="#{thingWeb.thing.borrowTime}" id="calendar" locale="pl"
+                    popup="true" datePattern="dd-MM-yyyy"
+                    showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px" requiredMessage="#{msg.requiredMessage}">
+                </rich:calendar>
+                <h:messages for="borrowTime" style="color:red" />
+
+                <h:outputText value="#{msg.numberOfThings}" />
+                <h:inputText id="numberOfThings" value="#{thingWeb.thing.numberOfThings}" size="50" >
+                    <f:validateRequired />
+                </h:inputText>
+                <h:messages for="numberOfThings" style="color:red" />
+            </h:panelGrid>
+            <p>
+                <h:commandButton value="#{msg.save}" action="#{thingWeb.merge}" />
+            </p>
+        </h:form>
+    </ui:define>
+</ui:composition>

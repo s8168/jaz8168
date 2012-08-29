@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <p>
+            <h:form>
+                <h:dataTable value="#{thingWeb.allThings}" var="item">
+                <f:facet name="header">#{msg.thingDesc}</f:facet>
+
+                <h:column>
+                    <f:facet name="header">#{msg.name}</f:facet>
+                    #{item.name}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.borrowTime}</f:facet>
+                    #{item.borrowTime}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">#{msg.numberOfThings}</f:facet>
+                    #{item.numberOfThings}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value="#{msg.retrive}" action="#{thingWeb.retrive()}"/> /
+                    <h:commandLink value="#{msg.edit}" action="#{thingWeb.update()}"/> /
+                    <h:commandLink value="#{msg.delete}" action="#{thingWeb.delete()}"/>
+                </h:column>
+            </h:dataTable>
+            </h:form>
+        </p>
+    </ui:define>
+</ui:composition>

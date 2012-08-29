@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+            <p>
+                <h:link value="#{msg.return}" outcome="all" />
+            </p>
+            
+            <h1>Dokładny opis rzeczy</h1>
+            
+            <b>#{thingWeb.thing.name}</b>
+            <p>#{thingWeb.thing.borrowTime}</p>
+            <p>#{thingWeb.thing.numberOfThings}</p>
+        </ui:define>
+</ui:composition>
